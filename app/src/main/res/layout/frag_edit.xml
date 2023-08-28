@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.jamessc94.recipe.ui.details.DetailsVM" />
+
+        <variable
+            name="data"
+            type="com.jamessc94.recipe.model.Recipe" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <ImageView
+            android:id="@+id/frag_edit_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back"
+            android:layout_marginTop="@dimen/space20"
+            android:layout_marginStart="@dimen/space20"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/space10"
+            android:layout_marginHorizontal="@dimen/space20"
+            android:background="@android:color/white"
+            app:layout_constraintTop_toBottomOf="@+id/frag_edit_back"
+            app:layout_constraintBottom_toTopOf="@id/frag_edit_save">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/frag_edit_title_et_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title"
+                    android:layout_marginTop="@dimen/space20"
+                    style="@style/CustomTextview"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/frag_edit_title_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{data.strMeal}"
+                    android:textColor="@android:color/black"
+                    android:hint="@string/title"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:backgroundTint="@android:color/holo_red_light"
+                    app:layout_constraintTop_toBottomOf="@+id/frag_edit_title_et_title"/>
+
+                <ImageView
+                    android:id="@+id/frag_edit_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/space10"
+                    app:layout_constraintTop_toBottomOf="@+id/frag_edit_title_et"
+                    app:layout_constraintDimensionRatio="1:.5"
+                    urlValue="@{data.strMealThumb}"/>
+
+                <ImageView
+                    android:id="@+id/frag_edit_img_add"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:src="@drawable/add_recipe"
+                    app:layout_constraintTop_toTopOf="@+id/frag_edit_img"
+                    app:layout_constraintBottom_toBottomOf="@+id/frag_edit_img"
+                    app:layout_constraintStart_toStartOf="@+id/frag_edit_img"
+                    app:layout_constraintEnd_toEndOf="@+id/frag_edit_img" />
+
+                <TextView
+                    android:id="@+id/frag_edit_spinner_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/category"
+                    android:layout_marginTop="@dimen/space20"
+                    style="@style/CustomTextview"
+                    app:layout_constraintTop_toBottomOf="@+id/frag_edit_img_add" />
+
+                <Spinner
+                    android:id="@+id/frag_edit_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space10"
+                    app:layout_constraintTop_toBottomOf="@+id/frag_edit_spinner_title"/>
+
+                <TextView
+                    android:id="@+id/frag_edit_ing_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ingredients"
+                    android:layout_marginTop="@dimen/space20"
+                    style="@style/CustomTextview"
+                    app:layout_constraintTop_toBottomOf="@+id/frag_edit_spinner" />
+
+                <EditText
+                    android:id="@+id/frag_edit_ing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:hint="@string/ingredients"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:backgroundTint="@android:color/holo_red_light"
+                    app:layout_constraintTop_toBottomOf="@+id/frag_edit_ing_title"/>
+
+                <TextView
+                    android:id="@+id/frag_edit_ins_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/instruction"
+                    android:layout_marginTop="@dimen/space20"
+                    style="@style/CustomTextview"
+                    app:layout_constraintTop_toBottomOf="@+id/frag_edit_ing" />
+
+                <EditText
+                    android:id="@+id/frag_edit_ins"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{data.strInstructions}"
+                    android:textColor="@android:color/black"
+                    android:hint="@string/instruction"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:backgroundTint="@android:color/holo_red_light"
+                    app:layout_constraintTop_toBottomOf="@+id/frag_edit_ins_title"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/frag_edit_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/save"
+            android:textColor="@android:color/white"
+            android:layout_margin="@dimen/space10"
+            app:backgroundTint="@android:color/holo_red_light"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

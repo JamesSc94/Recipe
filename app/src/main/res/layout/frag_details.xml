@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.jamessc94.recipe.ui.details.DetailsVM" />
+
+        <variable
+            name="data"
+            type="com.jamessc94.recipe.model.Recipe" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <ImageView
+            android:id="@+id/frag_details_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back"
+            android:layout_marginStart="@dimen/space20"
+            app:layout_constraintTop_toTopOf="@+id/frag_details_edit"
+            app:layout_constraintBottom_toBottomOf="@+id/frag_details_edit"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <ImageView
+            android:id="@+id/frag_details_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/delete"
+            android:layout_marginEnd="@dimen/space20"
+            app:layout_constraintTop_toTopOf="@+id/frag_details_edit"
+            app:layout_constraintBottom_toBottomOf="@+id/frag_details_edit"
+            app:layout_constraintEnd_toStartOf="@+id/frag_details_edit"/>
+
+        <TextView
+            android:id="@+id/frag_details_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space20"
+            android:text="@string/edit"
+            android:textSize="@dimen/t20"
+            style="@style/CustomTextview"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/space10"
+            android:background="@android:color/white"
+            app:layout_constraintTop_toBottomOf="@+id/frag_details_edit"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/frag_details_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{data.strMeal}"
+                    android:textSize="@dimen/t20"
+                    android:layout_marginHorizontal="@dimen/space20"
+                    style="@style/CustomTextview"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/frag_details_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/space10"
+                    android:layout_marginHorizontal="@dimen/space20"
+                    app:layout_constraintTop_toBottomOf="@+id/frag_details_title"
+                    app:layout_constraintDimensionRatio="1:.5"
+                    urlValue="@{data.strMealThumb}"/>
+
+                <TextView
+                    android:id="@+id/frag_details_category_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/category"
+                    android:textSize="@dimen/t20"
+                    android:layout_marginTop="@dimen/space20"
+                    android:layout_marginHorizontal="@dimen/space20"
+                    style="@style/CustomTextview"
+                    app:layout_constraintTop_toBottomOf="@+id/frag_details_img" />
+
+                <TextView
+                    android:id="@+id/frag_details_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{data.strCategory}"
+                    android:textSize="@dimen/t12"
+                    android:layout_marginHorizontal="@dimen/space20"
+                    style="@style/CustomTextview"
+                    app:layout_constraintTop_toBottomOf="@+id/frag_details_category_title" />
+
+                <TextView
+                    android:id="@+id/frag_details_ing_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ingredients"
+                    android:textSize="@dimen/t20"
+                    android:layout_marginTop="@dimen/space20"
+                    android:layout_marginHorizontal="@dimen/space20"
+                    style="@style/CustomTextview"
+                    app:layout_constraintTop_toBottomOf="@+id/frag_details_category" />
+
+                <TextView
+                    android:id="@+id/frag_details_ing_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/t12"
+                    android:layout_marginHorizontal="@dimen/space20"
+                    style="@style/CustomTextview"
+                    app:layout_constraintTop_toBottomOf="@+id/frag_details_ing_title" />
+
+                <TextView
+                    android:id="@+id/frag_details_et_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/instruction"
+                    android:textSize="@dimen/t20"
+                    android:layout_marginTop="@dimen/space20"
+                    android:layout_marginHorizontal="@dimen/space20"
+                    style="@style/CustomTextview"
+                    app:layout_constraintTop_toBottomOf="@+id/frag_details_ing_et" />
+
+                <TextView
+                    android:id="@+id/frag_details_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{data.strInstructions}"
+                    android:textSize="@dimen/t12"
+                    android:layout_marginHorizontal="@dimen/space20"
+                    style="@style/CustomTextview"
+                    app:layout_constraintTop_toBottomOf="@+id/frag_details_et_title"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

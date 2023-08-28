@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="data"
+            type="com.jamessc94.recipe.model.RecipeAdap" />
+
+        <variable
+            name="click"
+            type="com.jamessc94.recipe.ui.adapter.AdapHomeClickListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> click.onClick(data)}">
+
+        <ImageView
+            android:id="@+id/cell_home_icon"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/space5"
+            android:layout_marginStart="@dimen/space10"
+            android:layout_marginEnd="@dimen/space10"
+            android:layout_marginBottom="@dimen/space10"
+            android:background="@android:color/transparent"
+            app:layout_constraintWidth_percent=".3"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            urlValue="@{data.img}"/>
+
+        <TextView
+            android:id="@+id/cell_home_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{data.name}"
+            android:textStyle="bold"
+            android:layout_marginStart="@dimen/space5"
+            android:layout_marginEnd="@dimen/space5"
+            style="@style/CustomTextview"
+            app:layout_constraintTop_toTopOf="@+id/cell_home_icon"
+            app:layout_constraintStart_toEndOf="@+id/cell_home_icon"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/cell_home_type"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{data.category}"
+            android:textSize="@dimen/t10"
+            android:layout_marginStart="@dimen/space5"
+            android:layout_marginEnd="@dimen/space5"
+            style="@style/CustomTextview"
+            app:layout_constraintTop_toBottomOf="@+id/cell_home_name"
+            app:layout_constraintStart_toEndOf="@+id/cell_home_icon"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

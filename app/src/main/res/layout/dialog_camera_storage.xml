@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.jamessc94.recipe.ui.home.HomeVM" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white">
+
+        <ImageView
+            android:id="@+id/dialog_camera_storage_img"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/dialog_camera_storage_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space20"
+            android:text="@string/via"
+            android:textSize="@dimen/t20"
+            android:textStyle="bold"
+            android:gravity="center"
+            style="@style/CustomTextview"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/dialog_camera_storage_camera"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/camera"
+            android:layout_margin="@dimen/space10"
+            app:backgroundTint="@android:color/holo_red_light"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_camera_storage_title" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/dialog_camera_storage_gallery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/select_from_gallery"
+            android:layout_margin="@dimen/space10"
+            app:backgroundTint="@android:color/holo_red_light"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_camera_storage_camera" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/dialog_camera_storage_close"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/close"
+            android:layout_margin="@dimen/space10"
+            app:backgroundTint="@android:color/holo_red_light"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_camera_storage_gallery"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

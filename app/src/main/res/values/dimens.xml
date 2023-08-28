@@ -1,0 +1,9 @@
+<resources>
+    <dimen name="t10">10sp</dimen>
+    <dimen name="t12">12sp</dimen>
+    <dimen name="t20">20sp</dimen>
+
+    <dimen name="space5">5sp</dimen>
+    <dimen name="space10">10sp</dimen>
+    <dimen name="space20">20sp</dimen>
+</resources>

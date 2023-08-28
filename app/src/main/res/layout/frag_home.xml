@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.jamessc94.recipe.ui.home.HomeVM" />
+
+        <variable
+            name="adapter"
+            type="com.jamessc94.recipe.ui.adapter.AdapHome" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:toast="@{vm.toastMessage}"
+        android:background="@android:color/white">
+
+        <ImageButton
+            android:id="@+id/frag_home_filter"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/space10"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/filter"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/filter"
+            app:tint="@android:color/black"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintWidth_percent=".075"
+            app:layout_constraintDimensionRatio="1:1"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/frag_home_adap"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="@dimen/space20"
+            android:padding="@dimen/space10"
+            app:adapter="@{adapter}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/frag_home_filter"
+            app:layout_constraintVertical_bias="0.6" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/frag_home_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space10"
+            android:contentDescription="@string/add_recipe"
+            app:srcCompat="@drawable/add_recipe"
+            app:tint="@android:color/white"
+            app:backgroundTint="@android:color/holo_red_light"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/CustomProgressBar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:visibilityPb="@{vm.isLoading}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    app:startDestination="@id/homeFrag">
+
+    <fragment
+        android:id="@+id/homeFrag"
+        android:name="com.jamessc94.recipe.ui.home.HomeFrag"
+        android:label="HomeFrag" >
+        <action
+            android:id="@+id/action_homeFrag_to_detailsFrag"
+            app:destination="@id/detailsFrag" />
+        <action
+            android:id="@+id/action_homeFrag_to_editFrag"
+            app:destination="@id/editFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFrag"
+        android:name="com.jamessc94.recipe.ui.details.DetailsFrag"
+        android:label="DetailsFrag" >
+        <argument
+            android:name="mode"
+            app:argType="com.jamessc94.recipe.ui.details.DetailsVM$DetailsMode" />
+        <action
+            android:id="@+id/action_detailsFrag_to_editFrag"
+            app:destination="@id/editFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/editFrag"
+        android:name="com.jamessc94.recipe.ui.edit.EditFrag"
+        android:label="EditFrag" />
+</navigation>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="data"
+            type="com.jamessc94.recipe.model.RecipeTypeAdap" />
+
+        <variable
+            name="click"
+            type="com.jamessc94.recipe.ui.adapter.AdapHomeCateClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/cell_home_cate_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{data.name}"
+            android:textColor="@android:color/black"
+            android:layout_marginHorizontal="@dimen/space20"
+            android:layout_marginVertical="@dimen/space10"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cell_home_cate_cb"/>
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/cell_home_cate_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="@{data.selected}"
+            android:onClick="@{() -> click.onClick(data)}"
+            android:layout_marginEnd="@dimen/space20"
+            style="@style/CustomTextview"
+            app:layout_constraintTop_toTopOf="@+id/cell_home_cate_tv"
+            app:layout_constraintBottom_toBottomOf="@+id/cell_home_cate_tv"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
